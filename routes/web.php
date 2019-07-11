@@ -18,3 +18,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['namespace' => 'Admin'], function(){
+	Route::get('admin/home', 'HomeController@index')->name('admin/home');
+
+
+
+	// Admin Login Route
+	Route::get('admin-login', 'Auth\LoginController@showLoginForm')->name('admin.login');
+	Route::post('admin-login', 'Auth\LoginController@login');
+    //Route::post('logout', 'Auth\LoginController@logout');
+});
