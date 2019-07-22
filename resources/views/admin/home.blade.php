@@ -16,6 +16,17 @@
 
                     Admin Home page
                 </div>
+                <div class="btn btn-default pull-right">
+                      <a href="{{ route('admin.logout') }}"
+                          onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                          Logout
+                      </a>
+
+                      <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                          {{ csrf_field() }}
+                      </form>
+                </div>
             </div>
         </div>
     </div>

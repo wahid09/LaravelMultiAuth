@@ -22,13 +22,24 @@ Route::get('profile', function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['namespace' => 'Admin'], function(){
+Route::group(['namespace' => 'Admin', 'middleware'=>'auth:admin'], function(){
 	Route::get('admin/home', 'HomeController@index')->name('admin/home');
+
+
+
+	// Admin Login Route
+	//Route::get('admin-login', 'Auth\LoginController@showLoginForm')->name('admin.login');
+	//Route::post('admin-login', 'Auth\LoginController@login');
+    //Route::post('logout', 'Auth\LoginController@logout');
+});
+
+Route::group(['namespace' => 'Admin'], function(){
+	//Route::get('admin/home', 'HomeController@index')->name('admin/home');
 
 
 
 	// Admin Login Route
 	Route::get('admin-login', 'Auth\LoginController@showLoginForm')->name('admin.login');
 	Route::post('admin-login', 'Auth\LoginController@login');
-    //Route::post('logout', 'Auth\LoginController@logout');
+    Route::post('logout', 'Auth\LoginController@logout')->name('admin.logout');
 });
