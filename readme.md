@@ -14,7 +14,13 @@ On top of that, you can use multiple authentication types, simultaneously, so yo
 
 ## Laravel Sponsors
 
-
+## Credentials
+- For Admin Login
+- Run Command php artisan serve
+- Go to: http://127.0.0.1:8000/admin-login
+  - Email : admin@admin.com
+  - Password: password
+  
 
 ## Contributing
 
